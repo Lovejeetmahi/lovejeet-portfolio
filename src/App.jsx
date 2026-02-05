@@ -9,7 +9,7 @@ import riceCertFile from './interpersonal communication.pdf';
 import udemyCertFile from './udemy laravel.pdf';
 import nptelCertFile from './Privacy and Security in Online Social Media.pdf';
 import trainingCertFile from './Summer training.pdf';
-import profileImg from './myphoto.png';
+import profileImg from './Myphoto.jpeg';
 
 // --- DATA ARRAYS ---
 
