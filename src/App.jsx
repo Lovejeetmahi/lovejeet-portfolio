@@ -149,7 +149,7 @@ export default function App() {
         <div className="relative group mb-12">
             <div className="absolute -inset-6 bg-crimson-600/10 rounded-full blur-3xl opacity-50"></div>
             <div className="relative w-64 h-64 md:w-80 md:h-80 glass rounded-[4rem] p-4 group-hover:scale-105 transition-all duration-1000">
-                <img src={profileImg} alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3rem]  group-hover:grayscale-0 transition-all duration-1000" />
+                <img src={profileImg} alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3rem]  transition-all duration-1000" />
             </div>
         </div>
 
