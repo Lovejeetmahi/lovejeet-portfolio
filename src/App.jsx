@@ -12,6 +12,7 @@ import profileImg from './myphoto.png';
 
 // --- DATA ARRAYS ---
 
+// 1. EDUCATION DATA (Added with explicit colors below)
 const education = [
   { 
     degree: 'B.Tech in Computer Science', 
@@ -30,7 +31,7 @@ const education = [
   { 
     degree: 'Secondary (10th)', 
     school: "St. Joseph's Convent School", 
-    year: '2008 - 2021', 
+    year: '2021', // Adjusted based on standard timeline
     score: '92%', 
     status: 'Completed' 
   }
@@ -87,6 +88,7 @@ export default function App() {
         
         <div className="hidden md:flex items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] dark:text-slate-300 text-slate-600">
           <a href="#home" className="hover:text-crimson-600 transition">Home</a>
+          <a href="#impact" className="hover:text-crimson-600 transition">Impact</a>
           <a href="#education" className="hover:text-crimson-600 transition">Education</a>
           <a href="#skills" className="hover:text-crimson-600 transition">Skills</a>
           <a href="#projects" className="hover:text-crimson-600 transition">Projects</a>
@@ -126,7 +128,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* NEW: Education / Qualification Section */}
+      {/* EDUCATION SECTION (Fixed Visibility) */}
       <section id="education" className="py-32 px-6 max-w-6xl mx-auto z-10">
         <div className="mb-20 text-center md:text-left">
           <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Journey</span>
@@ -143,11 +145,12 @@ export default function App() {
                     <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{edu.year}</span>
                     <span className="px-3 py-1 rounded-full bg-crimson-600/10 text-crimson-600 text-[10px] font-black uppercase tracking-wider">{edu.status}</span>
                   </div>
+                  {/* Fixed: Explicit text-slate-900 for light mode visibility */}
                   <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-slate-900 mb-2">{edu.degree}</h3>
-                  <p className="text-lg font-bold text-slate-500">{edu.school}</p>
+                  <p className="text-lg font-bold text-slate-600 dark:text-slate-400">{edu.school}</p>
                 </div>
                 <div className="text-right">
-                  <div className="text-4xl md:text-5xl font-black text-slate-200 dark:text-white/10">{edu.score}</div>
+                  <div className="text-4xl md:text-5xl font-black text-slate-300 dark:text-white/10">{edu.score}</div>
                 </div>
               </div>
             </div>
