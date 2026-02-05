@@ -1,4 +1,4 @@
-\import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import VanillaTilt from 'vanilla-tilt';
 import { Download, Moon, Sun, Github, Linkedin, ArrowRight, Mail, Phone, GraduationCap } from 'lucide-react';
 
