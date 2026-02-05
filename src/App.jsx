@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+\import React, { useEffect, useRef, useState } from 'react';
 import VanillaTilt from 'vanilla-tilt';
-import { motion } from 'framer-motion';
-import { Download, Moon, Sun, Github, Linkedin, ArrowRight, Mail, Phone } from 'lucide-react';
+import { Download, Moon, Sun, Github, Linkedin, ArrowRight, Mail, Phone, GraduationCap } from 'lucide-react';
 
 // Asset Imports
 import resumeFile from './Lovejeet_Mahi_Resume.pdf';
@@ -11,7 +10,32 @@ import nptelCertFile from './Privacy and Security in Online Social Media.pdf';
 import trainingCertFile from './Summer training.pdf';
 import profileImg from './myphoto.png';
 
-// Data Arrays
+// --- DATA ARRAYS ---
+
+const education = [
+  { 
+    degree: 'B.Tech in Computer Science', 
+    school: 'Lovely Professional University', 
+    year: '2023 - 2027', 
+    score: 'CGPA: 6.2', 
+    status: 'Pursuing' 
+  },
+  { 
+    degree: 'Senior Secondary (12th)', 
+    school: 'Dr. Asa Nand Sen Sec School', 
+    year: '2021 - 2023', 
+    score: '86%', 
+    status: 'Completed' 
+  },
+  { 
+    degree: 'Secondary (10th)', 
+    school: "St. Joseph's Convent School", 
+    year: '2008 - 2021', 
+    score: '92%', 
+    status: 'Completed' 
+  }
+];
+
 const skills = [
   { cat: 'Languages', items: 'C, C++, JS, PHP, Java, Python' },
   { cat: 'Frontend', items: 'HTML5, CSS3, React, Tailwind' },
@@ -63,11 +87,10 @@ export default function App() {
         
         <div className="hidden md:flex items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] dark:text-slate-300 text-slate-600">
           <a href="#home" className="hover:text-crimson-600 transition">Home</a>
-          <a href="#impact" className="hover:text-crimson-600 transition">Impact</a>
+          <a href="#education" className="hover:text-crimson-600 transition">Education</a>
           <a href="#skills" className="hover:text-crimson-600 transition">Skills</a>
           <a href="#projects" className="hover:text-crimson-600 transition">Projects</a>
           <a href="#vault" className="hover:text-crimson-600 transition">Vault</a>
-          <a href="#contact" className="hover:text-crimson-600 transition">Contact</a>
         </div>
 
         <div className="flex items-center gap-4">
@@ -84,7 +107,6 @@ export default function App() {
           <img src={profileImg} alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3.5rem] grayscale hover:grayscale-0 transition-all duration-1000" />
         </div>
 
-        {/* HERO TEXT: Fixed Color for Light Mode Visibility */}
         <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-none mb-10 dark:text-white text-slate-900">
           DESIGNING<br />
           <span className="bg-gradient-to-r from-crimson-500 via-crimson-600 to-crimson-900 bg-clip-text text-transparent">SYSTEMS.</span>
@@ -101,6 +123,35 @@ export default function App() {
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter mt-8 dark:text-white text-slate-900 uppercase leading-tight">
             "Driving <span className="text-crimson-600 italic">Change</span> through Social Outreach."
           </h2>
+        </div>
+      </section>
+
+      {/* NEW: Education / Qualification Section */}
+      <section id="education" className="py-32 px-6 max-w-6xl mx-auto z-10">
+        <div className="mb-20 text-center md:text-left">
+          <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Journey</span>
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mt-4 italic dark:text-white text-slate-900 uppercase">Education.</h2>
+        </div>
+
+        <div className="space-y-8">
+          {education.map((edu, i) => (
+            <div key={i} className="p-10 glass rounded-[3rem] border-l-8 border-crimson-600 hover:scale-[1.02] transition-transform duration-500">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <GraduationCap className="w-6 h-6 text-crimson-600" />
+                    <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{edu.year}</span>
+                    <span className="px-3 py-1 rounded-full bg-crimson-600/10 text-crimson-600 text-[10px] font-black uppercase tracking-wider">{edu.status}</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-slate-900 mb-2">{edu.degree}</h3>
+                  <p className="text-lg font-bold text-slate-500">{edu.school}</p>
+                </div>
+                <div className="text-right">
+                  <div className="text-4xl md:text-5xl font-black text-slate-200 dark:text-white/10">{edu.score}</div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
