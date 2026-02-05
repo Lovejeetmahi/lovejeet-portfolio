@@ -10,13 +10,17 @@
   --color-onyx: #020202;
 }
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: #ffffff;
+/* Force Light Mode Background by Default */
+body {
+  background-color: #f8fafc; /* Slate-50 */
+  color: #0f172a; /* Slate-900 */
+  transition: background-color 0.7s ease, color 0.7s ease;
 }
 
-.dark {
-  background-color: #020202;
+/* Force Dark Mode Background only when .dark class is present */
+.dark body {
+  background-color: #020202; /* Onyx */
+  color: #e2e8f0; /* Slate-200 */
 }
 
 /* Glassmorphism */
@@ -26,12 +30,13 @@
   border: 1px solid rgba(220, 38, 38, 0.15);
 }
 
+/* Dark Mode Glass adjustment */
 .dark .glass {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(220, 38, 38, 0.1);
 }
 
-/* Background Blobs */
+/* Background Plasma */
 .plasma {
   position: fixed;
   width: 50vw;

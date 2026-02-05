@@ -4,7 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // <--- THIS LINE IS CRITICAL FOR THE BUTTON TO WORK
+  darkMode: 'class', // <--- THIS IS THE FIX.
   theme: {
     extend: {
       colors: {

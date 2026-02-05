@@ -107,8 +107,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-onyx text-slate-900 dark:text-slate-200 transition-colors duration-700 overflow-x-hidden scroll-smooth">
-      
+<div className="min-h-screen overflow-x-hidden scroll-smooth">      
       {/* Background Plasma */}
       <div className="plasma top-[-10%] left-[-5%] animate-pulse" />
       <div className="plasma bottom-[-10%] right-[-5%] opacity-50" />
