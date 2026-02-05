@@ -23,6 +23,13 @@ const skills = [
 // UPDATED: Replaced Secure File Management with Cookiify
 const projects = [
   { 
+    title: 'Cookiify', 
+    tech: 'React / Tailwind / Vercel /NodeJs ', 
+    desc: 'A modern, high-performance web application deployed for culinary exploration.', 
+    icon: '🍪', // Cookie icon for Cookiify
+    link: 'https://cookiify.vercel.app/' // LINKED HERE
+  },
+  { 
     title: 'Library Management System', 
     tech: 'PHP / MySQL / MIT App Inventor', 
     desc: 'Advanced inventory system with smooth API integration and mobile support.', 
@@ -35,14 +42,8 @@ const projects = [
     desc: 'Logistics optimization tool with shareable account reports and custom branding.', 
     icon: '📍',
     link: '#' 
-  },
-  { 
-    title: 'Cookiify', 
-    tech: 'React / Tailwind / Vercel /NodeJs ', 
-    desc: 'A modern, high-performance web application deployed for culinary exploration.', 
-    icon: '🍪', // Cookie icon for Cookiify
-    link: 'https://cookiify.vercel.app/' // LINKED HERE
   }
+  
 ];
 
 const certs = [
