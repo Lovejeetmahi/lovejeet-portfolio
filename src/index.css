@@ -10,30 +10,31 @@
   --color-onyx: #020202;
 }
 
-/* Force Light Mode Background by Default */
+/* 1. Force High Contrast Text Colors */
 body {
-  background-color: #f8fafc; /* Slate-50 */
-  color: #0f172a; /* Slate-900 */
-  transition: background-color 0.7s ease, color 0.7s ease;
+  background-color: #f8fafc; /* Light Gray Background */
+  color: #020202; /* Onyx/Black Text */
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Force Dark Mode Background only when .dark class is present */
 .dark body {
-  background-color: #020202; /* Onyx */
-  color: #e2e8f0; /* Slate-200 */
+  background-color: #020202; /* Onyx Background */
+  color: #e2e8f0; /* White/Gray Text */
 }
 
-/* Glassmorphism */
+/* 2. Fix Glass Visibility in Light Mode */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.7); /* More opaque in light mode */
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Gray border for visibility */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); /* Soft shadow */
 }
 
-/* Dark Mode Glass adjustment */
+/* 3. Dark Mode Glass (Revert to transparent style) */
 .dark .glass {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(220, 38, 38, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(220, 38, 38, 0.15); /* Red border */
+  box-shadow: none;
 }
 
 /* Background Plasma */
