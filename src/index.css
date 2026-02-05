@@ -10,43 +10,46 @@
   --color-onyx: #020202;
 }
 
-/* 1. Force High Contrast Text Colors */
-body {
-  background-color: #f8fafc; /* Light Gray Background */
-  color: #020202; /* Onyx/Black Text */
-  transition: background-color 0.5s ease, color 0.5s ease;
+@layer base {
+  body {
+    @apply transition-colors duration-500;
+  }
+  
+  /* Force dark mode background and light mode text colors */
+  .dark {
+    @apply bg-onyx text-slate-200;
+  }
+  
+  /* Force light mode background and dark text colors */
+  :root:not(.dark) {
+    @apply bg-slate-50 text-slate-900;
+  }
 }
 
-.dark body {
-  background-color: #020202; /* Onyx Background */
-  color: #e2e8f0; /* White/Gray Text */
-}
-
-/* 2. Fix Glass Visibility in Light Mode */
+/* Glass effect - Higher opacity in Light Mode for visibility */
 .glass {
-  background: rgba(255, 255, 255, 0.7); /* More opaque in light mode */
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.05); /* Gray border for visibility */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* 3. Dark Mode Glass (Revert to transparent style) */
 .dark .glass {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(220, 38, 38, 0.15); /* Red border */
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(220, 38, 38, 0.15);
   box-shadow: none;
 }
 
-/* Background Plasma */
+/* Background Plasma - Fixed Z-index behind everything */
 .plasma {
   position: fixed;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle, rgba(220, 38, 38, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
   filter: blur(100px);
   border-radius: 50%;
   pointer-events: none;
-  z-index: -1; 
+  z-index: -10; 
 }
 
 .no-scrollbar::-webkit-scrollbar {
