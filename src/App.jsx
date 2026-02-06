@@ -41,7 +41,6 @@ const projects = [
   { title: 'Cookiify', tech: 'React / Tailwind / Vercel', desc: 'Modern culinary exploration platform.', icon: '🍪', link: 'https://cookiify.vercel.app/' }
 ];
 
-// UPDATED: Using direct paths to 'public' folder (prevents build crashes)
 const certs = [
   { org: 'Rice University', title: 'Interpersonal Communication', date: 'Jan 2026', icon: '📜', pdf: '/interpersonal communication.pdf' },
   { org: 'Udemy', title: 'PHP Laravel Masterclass', date: 'Jan 2026', icon: '🛠️', pdf: '/udemy laravel.pdf' },
@@ -93,7 +92,6 @@ export default function App() {
           <button onClick={() => setIsDark(!isDark)} className="w-10 h-10 glass rounded-full flex items-center justify-center hover:border-crimson-600 transition cursor-pointer">
             {isDark ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4 text-slate-800" />}
           </button>
-          {/* UPDATED: Direct path to public folder */}
           <a href="/Lovejeet_Mahi_Resume.pdf" download className="hidden sm:block px-6 py-2 bg-crimson-600 text-white rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-crimson-700 transition">Resume</a>
         </div>
       </nav>
@@ -101,8 +99,12 @@ export default function App() {
       {/* Hero Section */}
       <section id="home" className="relative pt-64 pb-20 px-6 flex flex-col items-center text-center z-10">
         <div className="relative w-64 h-64 md:w-80 md:h-80 glass rounded-[4rem] p-4 mb-12 shadow-2xl">
-          {/* UPDATED: Direct path to public folder */}
-          <img src="/myphoto.png" alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3.5rem]  transition-all duration-1000" />
+          {/* UPDATED: Removed 'grayscale' class so photo is always in color */}
+          <img 
+            src="/myphoto.png" 
+            alt="Lovejeet Mahi" 
+            className="w-full h-full object-cover rounded-[3.5rem] transition-all duration-1000" 
+          />
         </div>
 
         <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-none mb-10 dark:text-white text-slate-900">
@@ -114,7 +116,7 @@ export default function App() {
         </p>
       </section>
 
-      {/* Impact Section */}
+      {/* Impact Section (Achievement) */}
       <section id="impact" className="py-20 px-6 max-w-5xl mx-auto z-10">
         <div className="p-12 md:p-20 glass rounded-[4rem] text-center border-crimson-600/20">
           <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Recognition</span>
@@ -124,7 +126,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* EDUCATION SECTION */}
+      {/* EDUCATION SECTION (Placed directly under Impact) */}
       <section id="education" className="py-32 px-6 max-w-6xl mx-auto z-10">
         <div className="mb-20 text-center md:text-left">
           <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Journey</span>
@@ -141,7 +143,7 @@ export default function App() {
                     <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{edu.year}</span>
                     <span className="px-3 py-1 rounded-full bg-crimson-600/10 text-crimson-600 text-[10px] font-black uppercase tracking-wider">{edu.status}</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-slate-900 mb-2">{edu.degree}</h3>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-black mb-2">{edu.degree}</h3>
                   <p className="text-lg font-bold text-slate-600 dark:text-slate-300">{edu.school}</p>
                 </div>
                 <div className="text-right">
