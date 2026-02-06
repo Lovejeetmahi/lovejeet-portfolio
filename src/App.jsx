@@ -8,11 +8,10 @@ import riceCertFile from './interpersonal communication.pdf';
 import udemyCertFile from './udemy laravel.pdf';
 import nptelCertFile from './Privacy and Security in Online Social Media.pdf';
 import trainingCertFile from './Summer training.pdf';
-import profileImg from './myphoto.png';
+import profileImg from './myphoto.jpeg';
 
 // --- DATA ARRAYS ---
 
-// 1. EDUCATION DATA (Added with explicit colors below)
 const education = [
   { 
     degree: 'B.Tech in Computer Science', 
@@ -31,7 +30,8 @@ const education = [
   { 
     degree: 'Secondary (10th)', 
     school: "St. Joseph's Convent School", 
-    year: '2021', // Adjusted based on standard timeline
+    // UPDATED: Corrected year based on your request
+    year: '2008 - 2021', 
     score: '92%', 
     status: 'Completed' 
   }
@@ -45,7 +45,7 @@ const skills = [
 ];
 
 const projects = [
-  { title: 'Library Management System', tech: 'PHP / MySQL', desc: 'Advanced inventory system with smooth API integration.', icon: '📚', link: '#' },
+  { title: 'Library Management System', tech: 'PHP / MySQL', desc: 'Advanced inventory system with smooth API integration.', icon: '📚', link: 'https://library-management-system-ff1i.vercel.app/' },
   { title: 'Last-Mile Route Planning', tech: 'JS / PHP / MySQL', desc: 'Logistics optimization tool with shareable reports.', icon: '📍', link: '#' },
   { title: 'Cookiify', tech: 'React / Tailwind / Vercel', desc: 'Modern culinary exploration platform.', icon: '🍪', link: 'https://cookiify.vercel.app/' }
 ];
@@ -83,7 +83,10 @@ export default function App() {
       <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-7xl glass rounded-full px-6 md:px-10 h-20 flex items-center justify-between shadow-2xl">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-crimson-600 to-crimson-900 rounded-lg shadow-lg" />
-          <span className="text-xl font-black tracking-tighter uppercase dark:text-white text-slate-900">LOVEJEET MAHI</span>
+          {/* UPDATED: Added v2.0 marker to check if deployment worked */}
+          <span className="text-xl font-black tracking-tighter uppercase dark:text-white text-slate-900">
+            LOVEJEET MAHI <span className="text-[10px] text-crimson-600">v2.0</span>
+          </span>
         </div>
         
         <div className="hidden md:flex items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] dark:text-slate-300 text-slate-600">
@@ -128,7 +131,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* EDUCATION SECTION (Fixed Visibility) */}
+      {/* EDUCATION SECTION */}
       <section id="education" className="py-32 px-6 max-w-6xl mx-auto z-10">
         <div className="mb-20 text-center md:text-left">
           <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Journey</span>
@@ -145,12 +148,11 @@ export default function App() {
                     <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{edu.year}</span>
                     <span className="px-3 py-1 rounded-full bg-crimson-600/10 text-crimson-600 text-[10px] font-black uppercase tracking-wider">{edu.status}</span>
                   </div>
-                  {/* Fixed: Explicit text-slate-900 for light mode visibility */}
-                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-slate-900 mb-2">{edu.degree}</h3>
-                  <p className="text-lg font-bold text-slate-600 dark:text-slate-400">{edu.school}</p>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-black mb-2">{edu.degree}</h3>
+                  <p className="text-lg font-bold text-slate-600 dark:text-slate-300">{edu.school}</p>
                 </div>
                 <div className="text-right">
-                  <div className="text-4xl md:text-5xl font-black text-slate-300 dark:text-white/10">{edu.score}</div>
+                  <div className="text-4xl md:text-5xl font-black text-slate-400 dark:text-white/20">{edu.score}</div>
                 </div>
               </div>
             </div>
