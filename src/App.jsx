@@ -102,7 +102,7 @@ export default function App() {
       <section id="home" className="relative pt-64 pb-20 px-6 flex flex-col items-center text-center z-10">
         <div className="relative w-64 h-64 md:w-80 md:h-80 glass rounded-[4rem] p-4 mb-12 shadow-2xl">
           {/* UPDATED: Direct path to public folder */}
-          <img src="/myphoto.png" alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3.5rem] grayscale hover:grayscale-0 transition-all duration-1000" />
+          <img src="/myphoto.png" alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3.5rem]  transition-all duration-1000" />
         </div>
 
         <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-none mb-10 dark:text-white text-slate-900">
