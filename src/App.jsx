@@ -36,7 +36,7 @@ const skills = [
 ];
 
 const projects = [
-  { title: 'Library Management System', tech: 'PHP / MySQL', desc: 'Advanced inventory system with smooth API integration.', icon: '📚', link: '#' },
+  { title: 'Library Management System', tech: 'PHP / MySQL', desc: 'Advanced inventory system with smooth API integration.', icon: '📚', link: 'https://library-management-system-ff1i.vercel.app/' },
   { title: 'Last-Mile Route Planning', tech: 'JS / PHP / MySQL', desc: 'Logistics optimization tool with shareable reports.', icon: '📍', link: '#' },
   { title: 'Cookiify', tech: 'React / Tailwind / Vercel', desc: 'Modern culinary exploration platform.', icon: '🍪', link: 'https://cookiify.vercel.app/' }
 ];
