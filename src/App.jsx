@@ -81,11 +81,11 @@ export default function App() {
         
         <div className="hidden md:flex items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] dark:text-slate-300 text-slate-600">
           <a href="#home" className="hover:text-crimson-600 transition">Home</a>
-          <a href="#impact" className="hover:text-crimson-600 transition">Impact</a>
-          <a href="#education" className="hover:text-crimson-600 transition">Education</a>
           <a href="#skills" className="hover:text-crimson-600 transition">Skills</a>
           <a href="#projects" className="hover:text-crimson-600 transition">Projects</a>
           <a href="#vault" className="hover:text-crimson-600 transition">Vault</a>
+          <a href="#impact" className="hover:text-crimson-600 transition">Impact</a>
+          <a href="#education" className="hover:text-crimson-600 transition">Education</a>
         </div>
 
         <div className="flex items-center gap-4">
@@ -114,45 +114,6 @@ export default function App() {
         <p className="max-w-xl text-lg font-bold dark:text-slate-400 text-slate-600">
           I am Lovejeet Mahi. A Full-Stack Architect specialized in digital ecosystems, currently at <span className="text-crimson-600">LPU</span>.
         </p>
-      </section>
-
-      {/* Impact Section (Achievement) */}
-      <section id="impact" className="py-20 px-6 max-w-5xl mx-auto z-10">
-        <div className="p-12 md:p-20 glass rounded-[4rem] text-center border-crimson-600/20">
-          <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Recognition</span>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter mt-8 dark:text-white text-slate-900 uppercase leading-tight">
-            "Driving <span className="text-crimson-600 italic">Change</span> through Social Outreach."
-          </h2>
-        </div>
-      </section>
-
-      {/* EDUCATION SECTION (Placed directly under Impact) */}
-      <section id="education" className="py-32 px-6 max-w-6xl mx-auto z-10">
-        <div className="mb-20 text-center md:text-left">
-          <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Journey</span>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mt-4 italic dark:text-white text-slate-900 uppercase">Education.</h2>
-        </div>
-
-        <div className="space-y-8">
-          {education.map((edu, i) => (
-            <div key={i} className="p-10 glass rounded-[3rem] border-l-8 border-crimson-600 hover:scale-[1.02] transition-transform duration-500">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <GraduationCap className="w-6 h-6 text-crimson-600" />
-                    <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{edu.year}</span>
-                    <span className="px-3 py-1 rounded-full bg-crimson-600/10 text-crimson-600 text-[10px] font-black uppercase tracking-wider">{edu.status}</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-black mb-2">{edu.degree}</h3>
-                  <p className="text-lg font-bold text-slate-600 dark:text-slate-300">{edu.school}</p>
-                </div>
-                <div className="text-right">
-                  <div className="text-4xl md:text-5xl font-black text-slate-400 dark:text-white/20">{edu.score}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Skills */}
@@ -205,6 +166,46 @@ export default function App() {
           ))}
         </div>
       </section>
+      
+      {/* Impact Section (Achievement) */}
+      <section id="impact" className="py-20 px-6 max-w-5xl mx-auto z-10">
+        <div className="p-12 md:p-20 glass rounded-[4rem] text-center border-crimson-600/20">
+          <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Recognition</span>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter mt-8 dark:text-white text-slate-900 uppercase leading-tight">
+            "Driving <span className="text-crimson-600 italic">Change</span> through Social Outreach."
+          </h2>
+        </div>
+      </section>
+
+      {/* EDUCATION SECTION (Placed directly under Impact) */}
+      <section id="education" className="py-32 px-6 max-w-6xl mx-auto z-10">
+        <div className="mb-20 text-center md:text-left">
+          <span className="text-[10px] font-black tracking-[0.5em] uppercase text-crimson-600">Journey</span>
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mt-4 italic dark:text-white text-slate-900 uppercase">Education.</h2>
+        </div>
+
+        <div className="space-y-8">
+          {education.map((edu, i) => (
+            <div key={i} className="p-10 glass rounded-[3rem] border-l-8 border-crimson-600 hover:scale-[1.02] transition-transform duration-500">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <GraduationCap className="w-6 h-6 text-crimson-600" />
+                    <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{edu.year}</span>
+                    <span className="px-3 py-1 rounded-full bg-crimson-600/10 text-crimson-600 text-[10px] font-black uppercase tracking-wider">{edu.status}</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-black mb-2">{edu.degree}</h3>
+                  <p className="text-lg font-bold text-slate-600 dark:text-slate-300">{edu.school}</p>
+                </div>
+                <div className="text-right">
+                  <div className="text-4xl md:text-5xl font-black text-slate-400 dark:text-white/20">{edu.score}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       {/* Footer */}
       <footer id="contact" className="py-40 text-center relative z-10 border-t dark:border-white/5 border-slate-200">
