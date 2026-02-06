@@ -2,14 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import VanillaTilt from 'vanilla-tilt';
 import { Download, Moon, Sun, Github, Linkedin, ArrowRight, Mail, Phone, GraduationCap } from 'lucide-react';
 
-// Asset Imports
-import resumeFile from './Lovejeet_Mahi_Resume.pdf';
-import riceCertFile from './interpersonal communication.pdf';
-import udemyCertFile from './udemy laravel.pdf';
-import nptelCertFile from './Privacy and Security in Online Social Media.pdf';
-import trainingCertFile from './Summer training.pdf';
-import profileImg from './myphoto.jpeg';
-
 // --- DATA ARRAYS ---
 
 const education = [
@@ -30,7 +22,6 @@ const education = [
   { 
     degree: 'Secondary (10th)', 
     school: "St. Joseph's Convent School", 
-    // UPDATED: Corrected year based on your request
     year: '2008 - 2021', 
     score: '92%', 
     status: 'Completed' 
@@ -45,16 +36,17 @@ const skills = [
 ];
 
 const projects = [
-  { title: 'Library Management System', tech: 'PHP / MySQL', desc: 'Advanced inventory system with smooth API integration.', icon: '📚', link: 'https://library-management-system-ff1i.vercel.app/' },
+  { title: 'Library Management System', tech: 'PHP / MySQL', desc: 'Advanced inventory system with smooth API integration.', icon: '📚', link: '#' },
   { title: 'Last-Mile Route Planning', tech: 'JS / PHP / MySQL', desc: 'Logistics optimization tool with shareable reports.', icon: '📍', link: '#' },
   { title: 'Cookiify', tech: 'React / Tailwind / Vercel', desc: 'Modern culinary exploration platform.', icon: '🍪', link: 'https://cookiify.vercel.app/' }
 ];
 
+// UPDATED: Using direct paths to 'public' folder (prevents build crashes)
 const certs = [
-  { org: 'Rice University', title: 'Interpersonal Communication', date: 'Jan 2026', icon: '📜', pdf: riceCertFile },
-  { org: 'Udemy', title: 'PHP Laravel Masterclass', date: 'Jan 2026', icon: '🛠️', pdf: udemyCertFile },
-  { org: 'NPTEL', title: 'Privacy & Security', date: 'Apr 2025', icon: '🛡️', pdf: nptelCertFile },
-  { org: 'LPU', title: 'JAVA Development', date: 'July 2025', icon: '☕', pdf: trainingCertFile }
+  { org: 'Rice University', title: 'Interpersonal Communication', date: 'Jan 2026', icon: '📜', pdf: '/interpersonal communication.pdf' },
+  { org: 'Udemy', title: 'PHP Laravel Masterclass', date: 'Jan 2026', icon: '🛠️', pdf: '/udemy laravel.pdf' },
+  { org: 'NPTEL', title: 'Privacy & Security', date: 'Apr 2025', icon: '🛡️', pdf: '/Privacy and Security in Online Social Media.pdf' },
+  { org: 'LPU', title: 'JAVA Development', date: 'July 2025', icon: '☕', pdf: '/Summer training.pdf' }
 ];
 
 export default function App() {
@@ -83,9 +75,8 @@ export default function App() {
       <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-7xl glass rounded-full px-6 md:px-10 h-20 flex items-center justify-between shadow-2xl">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-crimson-600 to-crimson-900 rounded-lg shadow-lg" />
-          {/* UPDATED: Added v2.0 marker to check if deployment worked */}
           <span className="text-xl font-black tracking-tighter uppercase dark:text-white text-slate-900">
-            LOVEJEET MAHI <span className="text-[10px] text-crimson-600">v2.0</span>
+            LOVEJEET MAHI
           </span>
         </div>
         
@@ -102,14 +93,16 @@ export default function App() {
           <button onClick={() => setIsDark(!isDark)} className="w-10 h-10 glass rounded-full flex items-center justify-center hover:border-crimson-600 transition cursor-pointer">
             {isDark ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4 text-slate-800" />}
           </button>
-          <a href={resumeFile} download className="hidden sm:block px-6 py-2 bg-crimson-600 text-white rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-crimson-700 transition">Resume</a>
+          {/* UPDATED: Direct path to public folder */}
+          <a href="/Lovejeet_Mahi_Resume.pdf" download className="hidden sm:block px-6 py-2 bg-crimson-600 text-white rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-crimson-700 transition">Resume</a>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section id="home" className="relative pt-64 pb-20 px-6 flex flex-col items-center text-center z-10">
         <div className="relative w-64 h-64 md:w-80 md:h-80 glass rounded-[4rem] p-4 mb-12 shadow-2xl">
-          <img src={profileImg} alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3.5rem] grayscale hover:grayscale-0 transition-all duration-1000" />
+          {/* UPDATED: Direct path to public folder */}
+          <img src="/myphoto.png" alt="Lovejeet Mahi" className="w-full h-full object-cover rounded-[3.5rem] grayscale hover:grayscale-0 transition-all duration-1000" />
         </div>
 
         <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-none mb-10 dark:text-white text-slate-900">
@@ -148,7 +141,7 @@ export default function App() {
                     <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{edu.year}</span>
                     <span className="px-3 py-1 rounded-full bg-crimson-600/10 text-crimson-600 text-[10px] font-black uppercase tracking-wider">{edu.status}</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-black mb-2">{edu.degree}</h3>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase dark:text-white text-slate-900 mb-2">{edu.degree}</h3>
                   <p className="text-lg font-bold text-slate-600 dark:text-slate-300">{edu.school}</p>
                 </div>
                 <div className="text-right">
