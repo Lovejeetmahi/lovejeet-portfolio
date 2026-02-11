@@ -1,88 +1,42 @@
-/* Ensure the body takes up the full screen and uses your theme colors */
-:root {
-  --primary: #3b82f6;
-  --bg-dark: #050507;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--bg-dark); /* Forces dark background immediately */
-  color: #f1f5f9;
-  font-family: 'Inter', sans-serif;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* Force dark mode class if state is true */
-.dark-mode {
-  background-color: var(--bg-dark);
-  color: #f1f5f9;
-}
-/* Project Link Button */
-.project-link-btn {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-  cursor: pointer;
-  text-decoration: none;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.project-link-btn:hover {
-  transform: scale(1.1) rotate(-15deg);
-  box-shadow: 0 0 20px var(--primary-glow);
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-/* Certificate Action Buttons */
-.cert-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
+.card {
+  padding: 2em;
 }
 
-.cert-action-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border);
-  color: inherit;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.cert-action-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--primary);
-}
-
-.cert-action-btn.download {
-  background: var(--primary);
-  color: white;
-  border: none;
-}
-
-.cert-action-btn.download:hover {
-  background: #2563eb; /* Darker blue */
-  transform: translateY(-2px);
-}
-
-/* Scroll adjustments */
-.cert-slider {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  padding: 0 60px 40px;
-  scroll-behavior: smooth;
+.read-the-docs {
+  color: #888;
 }
