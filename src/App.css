@@ -1,4 +1,24 @@
+/* Ensure the body takes up the full screen and uses your theme colors */
+:root {
+  --primary: #3b82f6;
+  --bg-dark: #050507;
+}
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-dark); /* Forces dark background immediately */
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Force dark mode class if state is true */
+.dark-mode {
+  background-color: var(--bg-dark);
+  color: #f1f5f9;
+}
 /* Project Link Button */
 .project-link-btn {
   width: 60px;
