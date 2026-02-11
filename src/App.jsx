@@ -1,7 +1,21 @@
-\import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Sun, Moon, ArrowRight, ChevronLeft, ChevronRight, Award, Code, Layout, Shield, Database, Eye, Download } from 'lucide-react';
-import './App.css';
+import { 
+  Github, 
+  Linkedin, 
+  Sun, 
+  Moon, 
+  ArrowRight, 
+  ChevronLeft, 
+  ChevronRight, 
+  Award, 
+  Code, 
+  Layout, 
+  Shield, 
+  Database, 
+  Eye, 
+  Download 
+} from "lucide-react";import './App.css';
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);
