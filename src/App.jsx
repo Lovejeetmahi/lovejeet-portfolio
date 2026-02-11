@@ -42,10 +42,10 @@ const projects = [
 ];
 
 const certs = [
-  { org: 'Rice University', title: 'Interpersonal Communication', date: 'Jan 2026', icon: '📜', pdf: '/interpersonal communication.pdf' },
-  { org: 'Udemy', title: 'PHP Laravel Masterclass', date: 'Jan 2026', icon: '🛠️', pdf: '/udemy laravel.pdf' },
-  { org: 'NPTEL', title: 'Privacy & Security', date: 'Apr 2025', icon: '🛡️', pdf: '/Privacy and Security in Online Social Media.pdf' },
-  { org: 'LPU', title: 'JAVA Development', date: 'July 2025', icon: '☕', pdf: '/Summer training.pdf' }
+  { org: 'Rice University', title: 'Interpersonal Communication', date: 'Jan 2026', icon: '📜', pdf: '/rice.pdf' },
+  { org: 'Udemy', title: 'PHP Laravel Masterclass', date: 'Jan 2026', icon: '🛠️', pdf: '/laravel.pdf' },
+  { org: 'NPTEL', title: 'Privacy & Security', date: 'Apr 2025', icon: '🛡️', pdf: '/security.pdf' },
+  { org: 'LPU', title: 'JAVA Development', date: 'July 2025', icon: '☕', pdf: '/java.pdf' }
 ];
 
 export default function App() {
