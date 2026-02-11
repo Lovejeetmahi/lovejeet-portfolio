@@ -1,55 +1,54 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import VanillaTilt from 'vanilla-tilt';
-import { Download, Moon, Sun, Github, Linkedin, ArrowRight, Mail, GraduationCap } from 'lucide-react';
+import { Sun, Moon, Github, Linkedin, Mail, GraduationCap } from 'lucide-react';
 
-const BurningAtmosphere = () => {
-  const embers = Array.from({ length: 40 });
-  const soot = Array.from({ length: 30 });
-  const flames = Array.from({ length: 12 });
+const InfernoAtmosphere = () => {
+  // Increased density of ash/embers to match reference
+  const embers = Array.from({ length: 85 }); 
+  const flameTongues = Array.from({ length: 15 });
 
   return (
     <>
-      {/* Heat Distortion Layer */}
-      <div className="heat-distortion" />
-
-      {/* Embers (Glowing) */}
+      <div className="smoke-layer" />
+      
+      {/* High Density Embers */}
       <div className="fixed inset-0 pointer-events-none z-[61]">
-        {embers.map((_, i) => (
-          <div key={`e-${i}`} className="ember" style={{
-            width: Math.random() * 4 + 1 + 'px',
-            height: Math.random() * 4 + 1 + 'px',
-            left: Math.random() * 100 + '%',
-            animationDuration: Math.random() * 5 + 4 + 's',
-            animationDelay: Math.random() * 10 + 's'
-          }} />
-        ))}
+        {embers.map((_, i) => {
+          const size = Math.random() * 3 + 1.5 + 'px';
+          const delay = Math.random() * 15 + 's';
+          const duration = Math.random() * 7 + 4 + 's';
+          const left = Math.random() * 100 + '%';
+          const colors = ['#ff9d00', '#ff4500', '#ffd700', '#fff']; // Multi-color sparks
+          return (
+            <div 
+              key={i} 
+              className="ember-particle" 
+              style={{ 
+                width: size, height: size, left, 
+                animationDelay: delay, 
+                animationDuration: duration,
+                backgroundColor: colors[Math.floor(Math.random() * colors.length)]
+              }} 
+            />
+          );
+        })}
       </div>
 
-      {/* Soot (Dark particles) */}
-      <div className="fixed inset-0 pointer-events-none z-[58]">
-        {soot.map((_, i) => (
-          <div key={`s-${i}`} className="soot" style={{
-            width: Math.random() * 3 + 1 + 'px',
-            height: Math.random() * 3 + 1 + 'px',
-            left: Math.random() * 100 + '%',
-            animationDuration: Math.random() * 8 + 6 + 's',
-            animationDelay: Math.random() * 10 + 's'
-          }} />
-        ))}
-      </div>
-
-      {/* The Inferno Base */}
-      <div className="fire-pit">
-        <div className="flame-main" />
-        {flames.map((_, i) => (
-          <div key={`f-${i}`} className="realistic-flame" style={{
-            width: Math.random() * 100 + 50 + 'px',
-            height: Math.random() * 100 + 50 + 'px',
-            left: `${i * 8}%`,
-            animationDelay: `${Math.random() * 2}s`,
-            opacity: 0.6 + Math.random() * 0.4
-          }} />
+      {/* Realistic Fireplace Base */}
+      <div className="fireplace-container">
+        <div className="fire-base-glow" />
+        {flameTongues.map((_, i) => (
+          <div 
+            key={i} 
+            className="flame-tongue" 
+            style={{ 
+              left: `${Math.random() * 100}%`, 
+              height: `${100 + Math.random() * 80}px`,
+              width: `${30 + Math.random() * 40}px`,
+              animationDelay: `${Math.random() * 0.5}s`,
+              opacity: 0.5 + Math.random() * 0.5
+            }} 
+          />
         ))}
       </div>
     </>
@@ -58,67 +57,55 @@ const BurningAtmosphere = () => {
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
-  const tiltRefs = useRef([]);
-
-  const education = [
-    { degree: 'B.Tech in Computer Science', school: 'Lovely Professional University', year: '2023 - 2027', score: 'CGPA: 6.2', status: 'Pursuing' },
-    { degree: 'Senior Secondary (12th)', school: 'Dr. Asa Nand Sen Sec School', year: '2021 - 2023', score: '86%', status: 'Completed' }
-  ];
-
-  useEffect(() => {
-    VanillaTilt.init(tiltRefs.current, { max: 10, speed: 1000, glare: true, "max-glare": 0.2 });
-  }, []);
 
   return (
-    <div className={`min-h-screen transition-all duration-700 ${isDark ? 'dark' : 'light'}`}>
-      <BurningAtmosphere />
+    <div className={`min-h-screen transition-all duration-700 ${isDark ? 'bg-[#050505] text-white' : 'bg-[#fffaf0] text-slate-900'}`}>
+      <InfernoAtmosphere />
 
       {/* Navigation */}
-      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-7xl glass rounded-full px-10 h-24 flex items-center justify-between shadow-[0_0_50px_rgba(255,69,0,0.2)]">
+      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-7xl glass rounded-full px-8 h-24 flex items-center justify-between shadow-[0_0_40px_rgba(255,69,0,0.3)]">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-red-600 rounded-xl shadow-[0_0_20px_#ff4500] animate-pulse" />
-          <span className="text-2xl font-black dark:text-white text-slate-900 tracking-tighter">LOVEJEET MAHI</span>
+          <div className="w-10 h-10 bg-red-600 rounded-lg shadow-[0_0_15px_#ff4500] animate-pulse" />
+          <span className="text-xl font-black tracking-tighter uppercase">LOVEJEET MAHI</span>
         </div>
-        
-        <div className="flex items-center gap-6">
-          <button onClick={() => setIsDark(!isDark)} className="w-12 h-12 rounded-full glass flex items-center justify-center hover:scale-110 transition">
+        <div className="flex gap-4">
+          <button onClick={() => setIsDark(!isDark)} className="w-12 h-12 glass rounded-full flex items-center justify-center">
             {isDark ? <Sun className="text-yellow-400" /> : <Moon className="text-red-600" />}
           </button>
-          <button className="px-8 py-3 bg-red-600 text-white rounded-full font-black uppercase tracking-tighter hover:bg-red-700 transition shadow-lg">Resume</button>
+          <button className="px-6 py-2 bg-red-600 rounded-full font-black uppercase text-xs tracking-widest shadow-lg">Resume</button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-72 pb-40 text-center z-10 px-6">
-        <h1 className="text-[10rem] md:text-[15rem] font-black leading-none tracking-tighter dark:text-white text-slate-900">
+      <section className="relative pt-80 pb-40 text-center z-10 px-6">
+        <h1 className="text-[9rem] md:text-[14rem] font-black leading-none tracking-tighter">
           DESIGNING<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-t from-red-800 via-red-500 to-yellow-500 animate-gradient-y">SYSTEMS.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-t from-red-800 via-red-500 to-yellow-500">SYSTEMS.</span>
         </h1>
-        <p className="mt-10 text-2xl font-bold dark:text-red-100 text-slate-700 max-w-2xl mx-auto">
-          A Full-Stack Architect specialized in digital ecosystems. Currently at <span className="text-red-600 italic">LPU</span>.
+        <p className="mt-8 text-xl font-bold opacity-80 max-w-xl mx-auto">
+          Full-Stack Architect specialized in digital ecosystems. Currently studying B.Tech CSE at LPU.
         </p>
       </section>
 
-      {/* Education */}
-      <section className="max-w-6xl mx-auto py-40 px-6 z-10 relative">
-        <h2 className="text-8xl font-black italic dark:text-white text-slate-900 mb-20 uppercase">Education.</h2>
-        <div className="space-y-10">
-          {education.map((edu, i) => (
-            <div key={i} ref={el => tiltRefs.current[i] = el} className="p-12 glass rounded-[4rem] border-l-[15px] border-red-600 flex justify-between items-center group overflow-hidden">
-               <div className="relative z-10">
-                  <h3 className="text-4xl font-black dark:text-white text-black mb-2">{edu.degree}</h3>
-                  <p className="text-xl dark:text-red-200 text-slate-600">{edu.school}</p>
-                  <span className="text-sm font-black uppercase tracking-widest text-red-600">{edu.year}</span>
-               </div>
-               <div className="text-7xl font-black opacity-20 group-hover:opacity-100 transition-opacity text-red-600">{edu.score}</div>
-            </div>
-          ))}
+      {/* Content Placeholder for Education/Vault */}
+      <section className="py-20 px-6 max-w-6xl mx-auto z-10 relative">
+        <h2 className="text-6xl font-black italic mb-12 uppercase">The Journey.</h2>
+        <div className="p-12 glass rounded-[3rem] border-l-8 border-red-600">
+           <div className="flex items-center gap-3 mb-4">
+              <GraduationCap className="text-red-600" />
+              <span className="font-bold">2023 - 2027</span>
+           </div>
+           <h3 className="text-3xl font-black uppercase">B.Tech in Computer Science</h3>
+           <p className="text-lg opacity-60">Lovely Professional University | CGPA: 6.2</p>
         </div>
       </section>
 
-      <footer className="py-40 text-center z-10 relative border-t border-red-900/20">
-        <h3 className="text-6xl font-black dark:text-white text-slate-900 uppercase">Let's build the <span className="text-red-600 italic">Unimagined.</span></h3>
-        <p className="mt-10 text-xl font-bold text-slate-500">Registration: 12311757</p>
+      <footer className="py-40 text-center z-10 relative border-t border-white/5">
+        <div className="flex justify-center gap-8 mb-10">
+          <a href="https://github.com/Lovejeetmahi" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:text-red-600 transition"><Github /></a>
+          <a href="https://linkedin.com/in/lovejeet-mahi" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:text-red-600 transition"><Linkedin /></a>
+        </div>
+        <p className="font-bold text-slate-500">mahilovejeet27@gmail.com</p>
       </footer>
     </div>
   );
