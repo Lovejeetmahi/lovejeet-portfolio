@@ -1,78 +1,67 @@
-:root {
-  --primary: #3b82f6;
-  --primary-glow: rgba(59, 130, 246, 0.2);
-  --onyx: #050507;
-  --glass: rgba(255, 255, 255, 0.03);
-  --border: rgba(255, 255, 255, 0.08);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
-  transition: 0.5s ease;
-  overflow-x: hidden;
-}
-
-.dark-mode {
-  background-color: var(--onyx);
-  color: #f1f5f9;
-}
-
-/* Kinetic Background */
-.plasma {
-  position: fixed;
-  width: 50vw;
-  height: 50vw;
+/* Project Link Button */
+.project-link-btn {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-  opacity: 0.5;
-  pointer-events: none;
-}
-.p1 { top: -10%; left: -10%; background: radial-gradient(circle, var(--primary), transparent 70%); }
-.p2 { bottom: -10%; right: -10%; background: radial-gradient(circle, #6366f1, transparent 70%); }
-
-/* Restored Navigation */
-.nav-container {
-  position: fixed;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1200px;
-  height: 80px;
-  z-index: 100;
-  border-radius: 100px;
+  background: var(--primary);
+  color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  justify-content: center;
+  transition: 0.3s;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-/* Marquee Logic */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.project-link-btn:hover {
+  transform: scale(1.1) rotate(-15deg);
+  box-shadow: 0 0 20px var(--primary-glow);
 }
-.marquee-track {
+
+/* Certificate Action Buttons */
+.cert-actions {
   display: flex;
-  gap: 40px;
-  width: max-content;
-  animation: marquee 35s linear infinite;
+  gap: 15px;
+  margin-top: 30px;
 }
-.marquee-track:hover { animation-play-state: paused; }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--onyx); }
-::-webkit-scrollbar-thumb { 
-  background: linear-gradient(var(--primary), #1e3a8a); 
-  border-radius: 10px;
+.cert-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cert-action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary);
+}
+
+.cert-action-btn.download {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.cert-action-btn.download:hover {
+  background: #2563eb; /* Darker blue */
+  transform: translateY(-2px);
+}
+
+/* Scroll adjustments */
+.cert-slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 0 60px 40px;
+  scroll-behavior: smooth;
 }
